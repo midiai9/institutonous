@@ -18,7 +18,7 @@ export default function Team() {
   const equipe = TEAM.filter((m) => m.group === 'equipe')
 
   return (
-    <section id="equipe" className="bg-sky/40 py-20 md:py-28">
+    <section id="equipe" className="bg-sky/40 py-14 md:py-20">
       <div className="container-nous">
         <Reveal className="mx-auto max-w-2xl text-center">
           <span className="text-sm font-bold uppercase tracking-wider text-cyan">Quem faz</span>

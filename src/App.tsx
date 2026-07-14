@@ -1,4 +1,6 @@
 import Nav from './components/Nav'
+import ScrollProgress from './components/ScrollProgress'
+import MusicToggle from './components/MusicToggle'
 import Hero from './components/Hero'
 import SectionNous from './components/SectionNous'
 import Marquee from './components/Marquee'
@@ -12,6 +14,7 @@ import Footer from './components/Footer'
 export default function App() {
   return (
     <>
+      <ScrollProgress />
       <Nav />
       <main>
         <Hero />
@@ -24,6 +27,7 @@ export default function App() {
         <CtaAjude />
       </main>
       <Footer />
+      <MusicToggle />
     </>
   )
 }

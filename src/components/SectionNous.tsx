@@ -4,7 +4,7 @@ import photo from '../assets/menino-mochila-biblioteca.jpg'
 
 export default function SectionNous() {
   return (
-    <section id="o-nous" className="bg-white py-20 md:py-28">
+    <section id="o-nous" className="bg-white py-14 md:py-20">
       <div className="container-nous grid items-center gap-12 lg:grid-cols-2">
         {/* Photo */}
         <Reveal className="order-2 lg:order-1">

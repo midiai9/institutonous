@@ -22,7 +22,7 @@ export default function Hero() {
   return (
     <section
       id="inicio"
-      className="relative overflow-hidden bg-gradient-to-b from-sky via-sky/50 to-white pt-28 pb-20 md:pt-32 md:pb-28"
+      className="relative overflow-hidden bg-gradient-to-b from-sky via-sky/50 to-white pt-28 pb-16 md:pt-32 md:pb-20"
     >
       {/* soft brand blobs */}
       <div className="pointer-events-none absolute -left-24 top-24 h-72 w-72 rounded-full bg-cyan/20 blur-3xl" />

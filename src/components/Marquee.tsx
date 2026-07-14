@@ -1,6 +1,21 @@
 import { Sparkles } from 'lucide-react'
 
-const WORDS = ['Educação', 'Cuidado', 'Oportunidade', 'Conhecimento', 'Talento', 'Esperança']
+const WORDS = [
+  'Educação',
+  'Cuidado',
+  'Oportunidade',
+  'Conhecimento',
+  'Talento',
+  'Esperança',
+  'Futuro',
+  'Dignidade',
+  'Sorrisos',
+  'Família',
+  'Carinho',
+  'Atenção',
+  'Acolhimento',
+  'Amor',
+]
 
 /**
  * Infinite brand ribbon (marquee), inspired by 21st.dev marquee patterns.

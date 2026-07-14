@@ -4,7 +4,7 @@ import PillarCard from './PillarCard'
 
 export default function Pillars() {
   return (
-    <section id="como-funciona" className="relative bg-sky/40 py-20 md:py-28">
+    <section id="como-funciona" className="relative bg-sky/40 py-14 md:py-20">
       <div className="container-nous">
         <Reveal className="mx-auto max-w-2xl text-center">
           <span className="text-sm font-bold uppercase tracking-wider text-cyan">

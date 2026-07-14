@@ -5,7 +5,7 @@ import photo from '../assets/menina-bracos-abertos.jpg'
 
 export default function Historia() {
   return (
-    <section id="historia" className="bg-white py-20 md:py-28">
+    <section id="historia" className="bg-white py-14 md:py-20">
       <div className="container-nous grid items-center gap-12 lg:grid-cols-2">
         {/* Text */}
         <div>
