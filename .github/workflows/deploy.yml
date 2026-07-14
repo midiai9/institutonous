@@ -1,22 +1,42 @@
 name: Build e Deploy Site
+
 on:
-  push: { branches: [main] }
+  push:
+    branches:
+      - main
   workflow_dispatch:
-permissions: { contents: write }
-concurrency: { group: deploy-${{ github.ref }}, cancel-in-progress: true }
+
+permissions:
+  contents: write
+
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: npm
-      - run: npm ci
-      - run: npm run build
-      - run: cp -f public/.htaccess dist/.htaccess || true
-      - uses: peaceiris/actions-gh-pages@v4
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Copy .htaccess
+        run: cp -f public/.htaccess dist/.htaccess || true
+
+      - name: Publish to deploy branch
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
