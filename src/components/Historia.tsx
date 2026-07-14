@@ -36,9 +36,9 @@ export default function Historia() {
                 height={800}
               />
             </div>
-            <figure className="absolute -bottom-6 left-4 right-4 rounded-2xl bg-navy p-6 text-white shadow-soft sm:left-8 sm:right-8">
+            <figure className="relative mt-4 rounded-2xl bg-navy p-6 text-white shadow-soft sm:absolute sm:-bottom-6 sm:left-8 sm:right-8 sm:mt-0">
               <Quote size={26} className="text-yellow" />
-              <blockquote className="mt-2 font-display text-lg font-semibold leading-snug">
+              <blockquote className="mt-2 font-display text-base font-semibold leading-snug sm:text-lg">
                 {HISTORIA.quote}
               </blockquote>
             </figure>

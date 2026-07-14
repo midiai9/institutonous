@@ -53,19 +53,20 @@ export default function Hero() {
             {HERO.subtitle}
           </motion.p>
 
-          <motion.div variants={item} className="mt-9 flex items-center gap-3 sm:gap-4">
+          <motion.div variants={item} className="mt-9 flex items-center gap-2.5 sm:gap-4">
             <a
               href="#ajude"
-              className="group inline-flex flex-1 items-center justify-center gap-2 whitespace-nowrap rounded-full bg-magenta px-4 py-3.5 text-sm font-bold text-white shadow-soft transition-transform hover:scale-[1.04] active:scale-95 sm:flex-none sm:px-7 sm:text-base"
+              className="group inline-flex min-w-0 flex-1 items-center justify-center gap-2 rounded-full bg-magenta px-3 py-3.5 text-sm font-bold text-white shadow-soft transition-transform hover:scale-[1.04] active:scale-95 sm:flex-none sm:px-7 sm:text-base"
             >
               <Heart size={18} className="shrink-0 fill-white transition-transform duration-300 group-hover:scale-125" />
               {HERO.ctaPrimary}
             </a>
             <a
               href="#o-nous"
-              className="group inline-flex flex-1 items-center justify-center gap-2 whitespace-nowrap rounded-full bg-white px-4 py-3.5 text-sm font-bold text-navy shadow-card ring-1 ring-navy/10 transition-transform hover:scale-[1.04] active:scale-95 sm:flex-none sm:px-7 sm:text-base"
+              className="group inline-flex min-w-0 flex-1 items-center justify-center gap-2 rounded-full bg-white px-3 py-3.5 text-sm font-bold text-navy shadow-card ring-1 ring-navy/10 transition-transform hover:scale-[1.04] active:scale-95 sm:flex-none sm:px-7 sm:text-base"
             >
-              {HERO.ctaSecondary}
+              <span className="sm:hidden">Conhecer</span>
+              <span className="hidden sm:inline">{HERO.ctaSecondary}</span>
               <ArrowRight size={18} className="shrink-0 transition-transform group-hover:translate-x-1" />
             </a>
           </motion.div>
