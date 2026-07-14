@@ -2,7 +2,6 @@ import { Quote } from 'lucide-react'
 import { HISTORIA } from '../data/site'
 import Reveal from './Reveal'
 import photo from '../assets/menina-bracos-abertos.jpg'
-import video from '../assets/videos/menina-bracos.mp4'
 
 export default function Historia() {
   return (
@@ -28,15 +27,13 @@ export default function Historia() {
         <Reveal delay={0.1}>
           <div className="group relative">
             <div className="overflow-hidden rounded-[2rem] shadow-soft">
-              <video
-                src={video}
-                poster={photo}
-                autoPlay
-                loop
-                muted
-                playsInline
-                aria-label="Menina de braços abertos e sorrindo em sala de aula"
+              <img
+                src={photo}
+                alt="Menina de braços abertos e sorrindo em sala de aula"
                 className="aspect-[4/5] w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
+                loading="lazy"
+                width={640}
+                height={800}
               />
             </div>
             <figure className="absolute -bottom-6 left-4 right-4 rounded-2xl bg-navy p-6 text-white shadow-soft sm:left-8 sm:right-8">
