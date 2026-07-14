@@ -5,7 +5,7 @@ import { FAQ } from '../data/site'
 import Reveal from './Reveal'
 
 export default function Faq() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0)
+  const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
     <section id="faq" className="bg-white py-14 md:py-20">
