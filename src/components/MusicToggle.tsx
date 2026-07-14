@@ -4,62 +4,54 @@ import { Volume2, VolumeX } from 'lucide-react'
 /**
  * Looping background music with an accessible on/off control.
  * Browsers block autoplay with sound, so playback starts on the first
- * user interaction (and can always be toggled with the floating button).
+ * user gesture — but ONLY that very first gesture. Once the user pauses
+ * with the button, clicking elsewhere must NOT restart the music.
  */
 export default function MusicToggle() {
   const audioRef = useRef<HTMLAudioElement | null>(null)
   const [playing, setPlaying] = useState(false)
 
-  // Prepare the audio element once and try to autoplay immediately.
   useEffect(() => {
     const audio = new Audio('/criancas.mp3')
     audio.loop = true
     audio.volume = 0.15
     audio.preload = 'auto'
     audioRef.current = audio
-    // Best-effort autoplay (most browsers block sound until a user gesture;
-    // the first-interaction handler below covers that case).
-    audio
-      .play()
-      .then(() => setPlaying(true))
-      .catch(() => {
-        /* blocked by autoplay policy — will start on first interaction */
-      })
+
+    const sync = () => setPlaying(!audio.paused)
+    audio.addEventListener('play', sync)
+    audio.addEventListener('pause', sync)
+
+    // Best-effort autoplay (usually blocked until a gesture).
+    audio.play().catch(() => {})
+
+    // Single first-gesture kickoff: fires at most once, and only if the
+    // music never managed to start yet. It removes itself immediately,
+    // so a manual pause later is never undone by clicking around.
+    const kickoff = () => {
+      window.removeEventListener('pointerdown', kickoff)
+      window.removeEventListener('keydown', kickoff)
+      if (audio.paused) audio.play().catch(() => {})
+    }
+    window.addEventListener('pointerdown', kickoff, { once: true })
+    window.addEventListener('keydown', kickoff, { once: true })
+
     return () => {
+      window.removeEventListener('pointerdown', kickoff)
+      window.removeEventListener('keydown', kickoff)
+      audio.removeEventListener('play', sync)
+      audio.removeEventListener('pause', sync)
       audio.pause()
     }
   }, [])
 
-  // Try to start playback on the first user gesture (autoplay policy).
-  useEffect(() => {
-    const start = () => {
-      const audio = audioRef.current
-      if (!audio || playing) return
-      audio
-        .play()
-        .then(() => setPlaying(true))
-        .catch(() => {
-          /* user can still start it via the button */
-        })
-      cleanup()
-    }
-    const cleanup = () => {
-      window.removeEventListener('pointerdown', start)
-      window.removeEventListener('keydown', start)
-    }
-    window.addEventListener('pointerdown', start, { once: true })
-    window.addEventListener('keydown', start, { once: true })
-    return cleanup
-  }, [playing])
-
   const toggle = () => {
     const audio = audioRef.current
     if (!audio) return
-    if (playing) {
-      audio.pause()
-      setPlaying(false)
+    if (audio.paused) {
+      audio.play().catch(() => {})
     } else {
-      audio.play().then(() => setPlaying(true)).catch(() => {})
+      audio.pause()
     }
   }
 
