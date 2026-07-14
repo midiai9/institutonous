@@ -66,9 +66,9 @@ export default function PencilCursor() {
       segs = segs.filter((s) => t - s.t < FADE)
       for (const s of segs) {
         const age = (t - s.t) / FADE
-        ctx.globalAlpha = (1 - age) * 0.9
+        ctx.globalAlpha = (1 - age) * 0.5
         ctx.strokeStyle = s.c
-        ctx.lineWidth = 3.6 * (1 - age * 0.5)
+        ctx.lineWidth = 2.2 * (1 - age * 0.5)
         ctx.beginPath()
         ctx.moveTo(s.x1, s.y1)
         ctx.lineTo(s.x2, s.y2)
@@ -98,8 +98,13 @@ export default function PencilCursor() {
         style={{ display: 'none', willChange: 'transform' }}
         aria-hidden="true"
       >
-        {/* colored pencil, graphite tip at (14,38) aligned to the cursor */}
-        <svg width="28" height="40" viewBox="0 0 28 40" style={{ transform: 'translate(-13px, -37px)' }}>
+        {/* colored pencil, tip at (14,38) pinned to the cursor, slightly tilted */}
+        <svg
+          width="28"
+          height="40"
+          viewBox="0 0 28 40"
+          style={{ transformOrigin: '14px 38px', transform: 'translate(-14px, -38px) rotate(-22deg)' }}
+        >
           <rect x="8" y="0" width="12" height="5" rx="2" fill="#E6194B" />
           <rect x="8" y="5" width="12" height="3" fill="#FFC800" />
           <rect x="8" y="8" width="12" height="20" fill="#1BA0D7" />

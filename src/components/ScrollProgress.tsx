@@ -26,17 +26,10 @@ export default function ScrollProgress() {
   )
 
   return (
-    <>
-      <motion.div
-        aria-hidden="true"
-        style={{ scaleX, background, boxShadow }}
-        className="fixed inset-x-0 top-0 z-[60] h-2 origin-left"
-      />
-      <motion.div
-        aria-hidden="true"
-        style={{ scaleX, background, boxShadow }}
-        className="fixed inset-x-0 bottom-0 z-[60] h-2 origin-left"
-      />
-    </>
+    <motion.div
+      aria-hidden="true"
+      style={{ scaleX, background, boxShadow }}
+      className="fixed inset-x-0 top-0 z-[60] h-2 origin-left"
+    />
   )
 }

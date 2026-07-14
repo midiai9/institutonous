@@ -1,6 +1,7 @@
 import { NOUS } from '../data/site'
 import Reveal from './Reveal'
 import photo from '../assets/menino-mochila-biblioteca.jpg'
+import video from '../assets/videos/menino-mochila.mp4'
 
 export default function SectionNous() {
   return (
@@ -11,13 +12,15 @@ export default function SectionNous() {
           <div className="group relative">
             <div className="absolute -inset-3 -rotate-2 rounded-[2.25rem] bg-sky transition-transform duration-500 group-hover:-rotate-3" />
             <div className="relative overflow-hidden rounded-[2rem] shadow-card">
-              <img
-                src={photo}
-                alt="Menino com mochila em uma biblioteca escolar"
+              <video
+                src={video}
+                poster={photo}
+                autoPlay
+                loop
+                muted
+                playsInline
+                aria-label="Menino com mochila em uma biblioteca escolar"
                 className="aspect-square w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
-                loading="lazy"
-                width={600}
-                height={600}
               />
             </div>
           </div>

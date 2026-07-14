@@ -2,6 +2,7 @@ import { motion, useReducedMotion } from 'framer-motion'
 import { ArrowRight, Heart, Pencil } from 'lucide-react'
 import { HERO } from '../data/site'
 import heroPhoto from '../assets/menina-sala-sorrindo.jpg'
+import heroVideo from '../assets/videos/menina-sala.mp4'
 import brainIcon from '../assets/icone-brain.png'
 
 export default function Hero() {
@@ -81,13 +82,15 @@ export default function Hero() {
           >
             {/* photo in organic rounded frame, with subtle zoom on hover */}
             <div className="group relative overflow-hidden rounded-[2.5rem] shadow-soft ring-8 ring-white">
-              <img
-                src={heroPhoto}
-                alt="Criança sorrindo em sala de aula"
+              <video
+                src={heroVideo}
+                poster={heroPhoto}
+                autoPlay
+                loop
+                muted
+                playsInline
+                aria-label="Criança sorrindo em sala de aula"
                 className="aspect-[4/5] w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
-                loading="eager"
-                width={640}
-                height={800}
               />
             </div>
 
