@@ -94,7 +94,7 @@ export default function Hero() {
             {/* official brain icon, top-left, gently floating */}
             <motion.div
               animate={float}
-              className="absolute -left-8 -top-8 flex h-28 w-28 items-center justify-center rounded-3xl bg-navy p-4 shadow-soft"
+              className="absolute -left-2 -top-3 flex h-20 w-20 items-center justify-center rounded-2xl bg-navy p-3 shadow-soft md:-left-8 md:-top-8 md:h-28 md:w-28 md:rounded-3xl md:p-4"
             >
               <img src={brainIcon} alt="" aria-hidden="true" className="h-full w-full object-contain" />
             </motion.div>
