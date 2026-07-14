@@ -1,9 +1,10 @@
-import { CalendarHeart, Gift, HandHeart, MessageCircle } from 'lucide-react'
+import { CalendarHeart, Gift, HandHeart, MessageCircle, ArrowRight } from 'lucide-react'
+import type { LucideIcon } from 'lucide-react'
 import { CTA, WHATSAPP_URL } from '../data/site'
 import Reveal from './Reveal'
 import bg from '../assets/meninos-bandeira-brasil.jpg'
 
-const WAY_ICONS = [CalendarHeart, Gift, HandHeart]
+const ICONS: Record<string, LucideIcon> = { CalendarHeart, Gift, HandHeart }
 
 export default function CtaAjude() {
   return (
@@ -24,32 +25,41 @@ export default function CtaAjude() {
           <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-white/80">{CTA.text}</p>
         </Reveal>
 
-        <div className="mx-auto mt-12 grid max-w-4xl gap-5 sm:grid-cols-3">
+        <div className="mx-auto mt-12 grid max-w-5xl gap-5 sm:grid-cols-3">
           {CTA.ways.map((way, i) => {
-            const Icon = WAY_ICONS[i]
+            const Icon = ICONS[way.icon] ?? HandHeart
             return (
-              <Reveal key={way.title} delay={i * 0.1}>
-                <div className="h-full rounded-2xl bg-white/10 p-6 text-center ring-1 ring-white/15 backdrop-blur-sm">
-                  <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-yellow text-navy">
-                    <Icon size={24} />
+              <Reveal key={way.title} delay={i * 0.1} className="h-full">
+                <a
+                  href={way.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex h-full flex-col rounded-2xl bg-white/10 p-6 text-center ring-1 ring-white/15 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1.5 hover:bg-white/15"
+                >
+                  <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-yellow text-navy transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-110">
+                    <Icon size={26} />
                   </div>
-                  <h3 className="mt-4 font-display text-lg font-bold">{way.title}</h3>
-                  <p className="mt-2 text-sm text-white/75">{way.text}</p>
-                </div>
+                  <h3 className="mt-4 font-display text-xl font-bold">{way.title}</h3>
+                  <p className="mt-2 flex-1 text-sm text-white/75">{way.text}</p>
+                  <span className="mt-5 inline-flex items-center justify-center gap-2 rounded-full bg-magenta px-5 py-2.5 text-sm font-bold text-white transition-colors group-hover:bg-magenta/90">
+                    {way.button}
+                    <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+                  </span>
+                </a>
               </Reveal>
             )
           })}
         </div>
 
-        <Reveal delay={0.15} className="mt-12 flex justify-center">
+        <Reveal delay={0.2} className="mt-10 text-center">
           <a
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-3 rounded-full bg-magenta px-9 py-4 text-lg font-bold text-white shadow-soft transition-transform hover:scale-[1.05] active:scale-95"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-white/80 underline-offset-4 hover:text-white hover:underline"
           >
-            <MessageCircle size={22} className="fill-white/20" />
-            {CTA.button}
+            <MessageCircle size={18} />
+            Ficou com dúvidas? Fale com a gente no WhatsApp
           </a>
         </Reveal>
       </div>

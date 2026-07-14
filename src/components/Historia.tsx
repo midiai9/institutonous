@@ -25,13 +25,17 @@ export default function Historia() {
 
         {/* Photo + quote */}
         <Reveal delay={0.1}>
-          <div className="relative">
-            <img
-              src={photo}
-              alt="Menina de braços abertos e sorrindo em sala de aula"
-              className="aspect-[4/5] w-full rounded-[2rem] object-cover shadow-soft"
-              loading="lazy"
-            />
+          <div className="group relative">
+            <div className="overflow-hidden rounded-[2rem] shadow-soft">
+              <img
+                src={photo}
+                alt="Menina de braços abertos e sorrindo em sala de aula"
+                className="aspect-[4/5] w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
+                loading="lazy"
+                width={640}
+                height={800}
+              />
+            </div>
             <figure className="absolute -bottom-6 left-4 right-4 rounded-2xl bg-navy p-6 text-white shadow-soft sm:left-8 sm:right-8">
               <Quote size={26} className="text-yellow" />
               <blockquote className="mt-2 font-display text-lg font-semibold leading-snug">

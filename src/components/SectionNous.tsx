@@ -8,14 +8,18 @@ export default function SectionNous() {
       <div className="container-nous grid items-center gap-12 lg:grid-cols-2">
         {/* Photo */}
         <Reveal className="order-2 lg:order-1">
-          <div className="relative">
-            <div className="absolute -inset-3 -rotate-2 rounded-[2.25rem] bg-sky" />
-            <img
-              src={photo}
-              alt="Menino com mochila em uma biblioteca escolar"
-              className="relative aspect-square w-full rounded-[2rem] object-cover shadow-card"
-              loading="lazy"
-            />
+          <div className="group relative">
+            <div className="absolute -inset-3 -rotate-2 rounded-[2.25rem] bg-sky transition-transform duration-500 group-hover:-rotate-3" />
+            <div className="relative overflow-hidden rounded-[2rem] shadow-card">
+              <img
+                src={photo}
+                alt="Menino com mochila em uma biblioteca escolar"
+                className="aspect-square w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
+                loading="lazy"
+                width={600}
+                height={600}
+              />
+            </div>
           </div>
         </Reveal>
 

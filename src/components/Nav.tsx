@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Menu, X } from 'lucide-react'
-import { NAV, WHATSAPP_URL } from '../data/site'
+import { NAV } from '../data/site'
 import logo from '../assets/instituto-nous-logo.png'
 
 export default function Nav() {
@@ -66,9 +66,7 @@ export default function Nav() {
         </ul>
 
         <a
-          href={WHATSAPP_URL}
-          target="_blank"
-          rel="noopener noreferrer"
+          href="#ajude"
           className="hidden rounded-full bg-magenta px-5 py-2.5 text-sm font-bold text-white shadow-card transition-transform hover:scale-[1.04] active:scale-95 lg:inline-block"
         >
           Quero ajudar
@@ -107,9 +105,7 @@ export default function Nav() {
           ))}
           <li className="mt-2">
             <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#ajude"
               onClick={() => setOpen(false)}
               className="block rounded-full bg-magenta px-5 py-3 text-center text-base font-bold text-white"
             >

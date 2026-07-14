@@ -1,8 +1,8 @@
 import { motion, useReducedMotion } from 'framer-motion'
-import { ArrowRight, Heart } from 'lucide-react'
-import { HERO, WHATSAPP_URL } from '../data/site'
+import { ArrowRight, Heart, Pencil } from 'lucide-react'
+import { HERO } from '../data/site'
 import heroPhoto from '../assets/menina-sala-sorrindo.jpg'
-import BrainStroke from './BrainStroke'
+import brainIcon from '../assets/icone-brain.png'
 
 export default function Hero() {
   const reduce = useReducedMotion()
@@ -15,6 +15,9 @@ export default function Hero() {
     hidden: { opacity: 0, y: reduce ? 0 : 22 },
     show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] } },
   }
+  const float = reduce
+    ? {}
+    : { y: [0, -10, 0], transition: { duration: 4, repeat: Infinity, ease: 'easeInOut' } }
 
   return (
     <section
@@ -52,12 +55,10 @@ export default function Hero() {
 
           <motion.div variants={item} className="mt-9 flex flex-wrap items-center gap-4">
             <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#ajude"
               className="group inline-flex items-center gap-2 rounded-full bg-magenta px-7 py-3.5 text-base font-bold text-white shadow-soft transition-transform hover:scale-[1.04] active:scale-95"
             >
-              <Heart size={19} className="fill-white" />
+              <Heart size={19} className="fill-white transition-transform duration-300 group-hover:scale-125" />
               {HERO.ctaPrimary}
             </a>
             <a
@@ -78,20 +79,34 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.2, ease: [0.21, 0.47, 0.32, 0.98] }}
             className="relative"
           >
-            {/* photo in organic rounded frame */}
-            <div className="relative overflow-hidden rounded-[2.5rem] shadow-soft ring-8 ring-white">
+            {/* photo in organic rounded frame, with subtle zoom on hover */}
+            <div className="group relative overflow-hidden rounded-[2.5rem] shadow-soft ring-8 ring-white">
               <img
                 src={heroPhoto}
                 alt="Criança sorrindo em sala de aula"
-                className="aspect-[4/5] w-full object-cover"
+                className="aspect-[4/5] w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
                 loading="eager"
+                width={640}
+                height={800}
               />
             </div>
 
-            {/* brain accent, top-left */}
-            <div className="absolute -left-8 -top-8 h-28 w-28 rounded-2xl bg-navy p-3 shadow-soft">
-              <BrainStroke color="#1BA0D7" className="h-full w-full" />
-            </div>
+            {/* official brain icon, top-left, gently floating */}
+            <motion.div
+              animate={float}
+              className="absolute -left-8 -top-8 flex h-28 w-28 items-center justify-center rounded-3xl bg-navy p-4 shadow-soft"
+            >
+              <img src={brainIcon} alt="" aria-hidden="true" className="h-full w-full object-contain" />
+            </motion.div>
+
+            {/* animated colored pencil accent */}
+            <motion.div
+              animate={reduce ? {} : { rotate: [0, 8, 0], y: [0, -6, 0] }}
+              transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
+              className="absolute -right-3 top-10 flex h-14 w-14 items-center justify-center rounded-2xl bg-cyan shadow-card"
+            >
+              <Pencil size={26} className="text-white" strokeWidth={2.2} />
+            </motion.div>
 
             {/* floating badge, bottom-right */}
             <motion.div

@@ -5,7 +5,12 @@
 export const WHATSAPP_NUMBER = '(19) 99913-1070'
 export const WHATSAPP_URL =
   'https://wa.me/5519999131070?text=' +
-  encodeURIComponent('Olá! Quero ajudar o Instituto Nous 💙')
+  encodeURIComponent('Olá! Quero falar com o Instituto Nous 💙')
+
+// Links de ação (Asaas + formulário de voluntário)
+export const DONATE_MONTHLY_URL = 'https://www.asaas.com/c/ycsrx7xxliqouc9r'
+export const DONATE_ONCE_URL = 'https://www.asaas.com/c/oat8ldbvm8ddzrul'
+export const VOLUNTEER_FORM_URL = 'https://forms.gle/Sf6tCPHhHCoYETW97'
 
 export const CNPJ = '62.604.226/0001-59'
 
@@ -24,7 +29,7 @@ export const HERO = {
   eyebrow: 'Instituto Nous',
   title: 'Cultivando o conhecimento',
   subtitle:
-    'Acreditamos que toda criança é um talento. Garantimos educação de qualidade — do primeiro ano até a formação — para crianças que mais precisam.',
+    'Acreditamos que toda criança é um talento. Garantimos educação de qualidade, do primeiro ano até a formação, para as crianças que mais precisam.',
   ctaPrimary: 'Quero ajudar',
   ctaSecondary: 'Conhecer o projeto',
 }
@@ -47,7 +52,7 @@ export const PILLARS: Pillar[] = [
   {
     icon: 'GraduationCap',
     title: 'Financiamento integral',
-    text: 'Cobrimos tudo o que a criança precisa para estudar: mensalidade, transporte, material, uniforme, alimentação e atividades escolares — sempre de acordo com a necessidade de cada uma.',
+    text: 'Cobrimos tudo o que a criança precisa para estudar: mensalidade, transporte, material, uniforme, alimentação e atividades escolares, sempre de acordo com a necessidade de cada uma.',
   },
   {
     icon: 'HeartHandshake',
@@ -71,22 +76,27 @@ export const HISTORIA = {
   title: 'Começou com um desejo de fazer o bem',
   paragraphs: [
     'Sabe aquele desejo de fazer algo bom para o mundo? Foi assim que começamos. Três mulheres decidiram estender a outras crianças o mesmo cuidado com a educação que oferecem aos próprios filhos.',
-    'Cuidamos de cada criança e de cada família como cuidaríamos das nossas — e recebemos de volta humanidade, gratidão e esperança.',
+    'Cuidamos de cada criança e de cada família como cuidaríamos das nossas, e recebemos de volta humanidade, gratidão e esperança.',
     'Atendemos famílias com renda inferior a três salários mínimos, oferecendo oportunidades iguais de desenvolvimento.',
   ],
   quote:
     'Nossas crianças são talentos que precisam de estímulos para se tornarem adultos capazes.',
 }
 
-export type Member = { name: string; role: string; group: 'diretoria' | 'equipe' }
+export type Member = {
+  name: string
+  role: string
+  group: 'diretoria' | 'equipe'
+  photo: string
+}
 
 export const TEAM: Member[] = [
-  { name: 'Mariana Magri', role: 'Diretora Executiva', group: 'diretoria' },
-  { name: 'Glau Dias', role: 'Diretora Psicossocial', group: 'diretoria' },
-  { name: 'Limerci del Álamo', role: 'Diretora Acadêmica', group: 'diretoria' },
-  { name: 'Fabiana Rissio', role: 'Psicopedagoga', group: 'equipe' },
-  { name: 'Eduardo Mendes', role: 'Conselheiro', group: 'equipe' },
-  { name: 'Leandro BonVecchio', role: 'Conselheiro', group: 'equipe' },
+  { name: 'Mariana Magri', role: 'Diretora Executiva', group: 'diretoria', photo: 'mariana-magri' },
+  { name: 'Glau Dias', role: 'Diretora Psicossocial', group: 'diretoria', photo: 'glau-dias' },
+  { name: 'Limerci del Álamo', role: 'Diretora Acadêmica', group: 'diretoria', photo: 'limerci-del-alamo' },
+  { name: 'Fabiana Rissio', role: 'Psicopedagoga', group: 'equipe', photo: 'fabiana-rissio' },
+  { name: 'Eduardo Mendes', role: 'Conselheiro', group: 'equipe', photo: 'eduardo-mendes' },
+  { name: 'Leandro BonVecchio', role: 'Conselheiro', group: 'equipe', photo: 'leandro-bonvecchio' },
 ]
 
 export const TEAM_CTA =
@@ -121,14 +131,39 @@ export const FAQ: FaqItem[] = [
   },
 ]
 
+export type CtaWay = {
+  icon: string
+  title: string
+  text: string
+  button: string
+  href: string
+}
+
 export const CTA = {
   kicker: 'Faça parte',
   title: 'Faça parte dessa história',
   text: 'Sua contribuição garante que uma criança continue estudando. Você pode contribuir mensalmente, uma única vez, ou doar seu tempo como voluntário. Toda ajuda é bem-vinda.',
   ways: [
-    { title: 'Contribuição mensal', text: 'Apoie de forma recorrente e acompanhe uma trajetória inteira.' },
-    { title: 'Doação única', text: 'Faça uma contribuição pontual, no valor que puder.' },
-    { title: 'Voluntariado', text: 'Doe seu tempo e talento em diversas áreas.' },
-  ],
-  button: 'Falar no WhatsApp',
+    {
+      icon: 'CalendarHeart',
+      title: 'Contribua todo mês',
+      text: 'Apoie de forma recorrente e acompanhe uma trajetória inteira.',
+      button: 'Contribuir mensalmente',
+      href: DONATE_MONTHLY_URL,
+    },
+    {
+      icon: 'Gift',
+      title: 'Contribua uma vez',
+      text: 'Faça uma contribuição pontual, no valor que puder.',
+      button: 'Doar uma vez',
+      href: DONATE_ONCE_URL,
+    },
+    {
+      icon: 'HandHeart',
+      title: 'Seja voluntário',
+      text: 'Doe seu tempo e talento em diversas áreas.',
+      button: 'Quero ser voluntário',
+      href: VOLUNTEER_FORM_URL,
+    },
+  ] as CtaWay[],
 }
