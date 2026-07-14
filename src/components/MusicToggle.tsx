@@ -14,7 +14,7 @@ export default function MusicToggle() {
   useEffect(() => {
     const audio = new Audio('/criancas.mp3')
     audio.loop = true
-    audio.volume = 0.02
+    audio.volume = 0.012
     audio.preload = 'auto'
     audioRef.current = audio
 
