@@ -53,20 +53,20 @@ export default function Hero() {
             {HERO.subtitle}
           </motion.p>
 
-          <motion.div variants={item} className="mt-9 flex flex-wrap items-center gap-4">
+          <motion.div variants={item} className="mt-9 flex items-center gap-3 sm:gap-4">
             <a
               href="#ajude"
-              className="group inline-flex items-center gap-2 rounded-full bg-magenta px-7 py-3.5 text-base font-bold text-white shadow-soft transition-transform hover:scale-[1.04] active:scale-95"
+              className="group inline-flex flex-1 items-center justify-center gap-2 whitespace-nowrap rounded-full bg-magenta px-4 py-3.5 text-sm font-bold text-white shadow-soft transition-transform hover:scale-[1.04] active:scale-95 sm:flex-none sm:px-7 sm:text-base"
             >
-              <Heart size={19} className="fill-white transition-transform duration-300 group-hover:scale-125" />
+              <Heart size={18} className="shrink-0 fill-white transition-transform duration-300 group-hover:scale-125" />
               {HERO.ctaPrimary}
             </a>
             <a
               href="#o-nous"
-              className="group inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-base font-bold text-navy shadow-card ring-1 ring-navy/10 transition-transform hover:scale-[1.04] active:scale-95"
+              className="group inline-flex flex-1 items-center justify-center gap-2 whitespace-nowrap rounded-full bg-white px-4 py-3.5 text-sm font-bold text-navy shadow-card ring-1 ring-navy/10 transition-transform hover:scale-[1.04] active:scale-95 sm:flex-none sm:px-7 sm:text-base"
             >
               {HERO.ctaSecondary}
-              <ArrowRight size={19} className="transition-transform group-hover:translate-x-1" />
+              <ArrowRight size={18} className="shrink-0 transition-transform group-hover:translate-x-1" />
             </a>
           </motion.div>
         </motion.div>
