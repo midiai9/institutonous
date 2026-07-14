@@ -10,13 +10,21 @@ export default function MusicToggle() {
   const audioRef = useRef<HTMLAudioElement | null>(null)
   const [playing, setPlaying] = useState(false)
 
-  // Prepare the audio element once.
+  // Prepare the audio element once and try to autoplay immediately.
   useEffect(() => {
     const audio = new Audio('/criancas.mp3')
     audio.loop = true
     audio.volume = 0.35
     audio.preload = 'auto'
     audioRef.current = audio
+    // Best-effort autoplay (most browsers block sound until a user gesture;
+    // the first-interaction handler below covers that case).
+    audio
+      .play()
+      .then(() => setPlaying(true))
+      .catch(() => {
+        /* blocked by autoplay policy — will start on first interaction */
+      })
     return () => {
       audio.pause()
     }

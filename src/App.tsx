@@ -1,5 +1,6 @@
 import Nav from './components/Nav'
 import ScrollProgress from './components/ScrollProgress'
+import PencilCursor from './components/PencilCursor'
 import MusicToggle from './components/MusicToggle'
 import Hero from './components/Hero'
 import SectionNous from './components/SectionNous'
@@ -15,6 +16,7 @@ export default function App() {
   return (
     <>
       <ScrollProgress />
+      <PencilCursor />
       <Nav />
       <main>
         <Hero />
