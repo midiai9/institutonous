@@ -50,7 +50,12 @@ export default function SectionNous() {
           </Reveal>
 
           <Reveal delay={0.15}>
-            <p className="mt-6 font-display text-xl font-semibold text-cyan">{NOUS.closing}</p>
+            <div className="mt-8 flex items-center gap-4 rounded-2xl bg-gradient-to-r from-cyan to-navy px-6 py-6 shadow-soft">
+              <span className="hidden h-12 w-1.5 shrink-0 rounded-full bg-yellow sm:block" />
+              <p className="font-display text-xl font-bold leading-snug text-white sm:text-2xl">
+                {NOUS.closing}
+              </p>
+            </div>
           </Reveal>
         </div>
       </div>
