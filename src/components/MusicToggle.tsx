@@ -14,7 +14,7 @@ export default function MusicToggle() {
   useEffect(() => {
     const audio = new Audio('/criancas.mp3')
     audio.loop = true
-    audio.volume = 0.35
+    audio.volume = 0.15
     audio.preload = 'auto'
     audioRef.current = audio
     // Best-effort autoplay (most browsers block sound until a user gesture;
