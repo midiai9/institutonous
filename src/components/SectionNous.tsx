@@ -50,12 +50,17 @@ export default function SectionNous() {
           </Reveal>
 
           <Reveal delay={0.15}>
-            <div className="mt-8 flex items-center gap-4 rounded-2xl bg-gradient-to-r from-cyan to-navy px-6 py-6 shadow-soft">
-              <span className="hidden h-12 w-1.5 shrink-0 rounded-full bg-yellow sm:block" />
-              <p className="font-display text-xl font-bold leading-snug text-white sm:text-2xl">
-                {NOUS.closing}
-              </p>
-            </div>
+            <p className="mt-8 font-display text-2xl font-bold leading-snug text-navy sm:text-[28px]">
+              Para nós, a educação é o caminho para{' '}
+              <span className="relative inline-block text-cyan">
+                <span className="relative z-10">uma vida digna</span>
+                <span
+                  aria-hidden="true"
+                  className="absolute inset-x-0 bottom-0.5 z-0 h-3.5 bg-yellow/70"
+                />
+              </span>
+              .
+            </p>
           </Reveal>
         </div>
       </div>
